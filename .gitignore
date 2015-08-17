@@ -2,3 +2,5 @@
 /build/
 /logs/spring.log
 /gradle/
+gradle
+/.gradle
