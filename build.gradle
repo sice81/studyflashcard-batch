@@ -37,6 +37,7 @@ dependencies {
     compile 'org.quartz-scheduler:quartz:2.2.1'
 	compile 'com.oracle:ojdbc6:11.1.0.7.0'
     compile("commons-dbcp:commons-dbcp:1.4")
+    testCompile("junit:junit")
 }
 
 task wrapper(type: Wrapper) {

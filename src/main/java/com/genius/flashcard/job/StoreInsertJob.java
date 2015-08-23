@@ -1,5 +1,7 @@
 package com.genius.flashcard.job;
 
+import java.io.IOException;
+
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -17,7 +19,12 @@ public class StoreInsertJob extends QuartzJobBean {
 
 	protected void executeInternal(JobExecutionContext ctx) throws JobExecutionException {
 		StoreInsertService storeInsertService = (StoreInsertService) ctx.getMergedJobDataMap().get("storeInsertService");
-		storeInsertService.deleteAll();
-		storeInsertService.insertFromStudyActLog();
+
+		try {
+			storeInsertService.deleteAll();
+			storeInsertService.insertFromStudyActLog();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
