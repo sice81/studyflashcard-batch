@@ -4,3 +4,4 @@
 /gradle/
 gradle
 /.gradle
+/error.log
